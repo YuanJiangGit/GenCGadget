@@ -1,6 +1,6 @@
-# DG
+# GenCGadget
 
-[![Build Status](https://travis-ci.org/mchalupa/dg.svg?branch=master)](https://travis-ci.org/mchalupa/dg)
+GenCGadget: A tool for generating LLVM IR-based code gadgets of c/c++ programs, which relies on the program slicing tool (i.e., DG).
 
 DG is a library containing various bits for program analysis. However, the main motivation of this library is program slicing. The library contains implementation of a pointer analysis, data dependence analysis, control dependence analysis, and an analysis of relations between values in LLVM bitcode. All of the analyses target LLVM bitcode, but most of them are written in a generic way, so they are not dependent on LLVM in particular.
 
