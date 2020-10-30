@@ -1,0 +1,1 @@
+{"vul_locations_src": [187, 190, 191, 192, 194, 195], "patched_file_path": "libavcodec/vda_h264_dec.c", "vul_func_start": 138, "vul_func_end": 211}

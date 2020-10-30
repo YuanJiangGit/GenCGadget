@@ -1,0 +1,113 @@
+0 libavcodec/vda_h264_dec.c/vdadec_init
+%21 = load i32*, i32** %pix_fmts, align 8
+%call6 = call i32 %17(%struct.AVCodecContext* %18, i32* %21)
+%22 = load %struct.VDADecoderContext*, %struct.VDADecoderContext** %ctx, align 8
+%pix_fmt = getelementptr inbounds %struct.VDADecoderContext, %struct.VDADecoderContext* %22, i32 0, i32 3
+%0 = load %struct.AVCodecContext*, %struct.AVCodecContext** %avctx.addr, align 8
+%priv_data = getelementptr inbounds %struct.AVCodecContext, %struct.AVCodecContext* %0, i32 0, i32 8
+%1 = load i8*, i8** %priv_data, align 8
+%2 = bitcast i8* %1 to %struct.VDADecoderContext*
+store %struct.VDADecoderContext* %2, %struct.VDADecoderContext** %ctx, align 8
+%3 = load %struct.VDADecoderContext*, %struct.VDADecoderContext** %ctx, align 8
+%vda_ctx1 = getelementptr inbounds %struct.VDADecoderContext, %struct.VDADecoderContext* %3, i32 0, i32 2
+store %struct.vda_context* %vda_ctx1, %struct.vda_context** %vda_ctx, align 8
+%4 = load %struct.VDADecoderContext*, %struct.VDADecoderContext** %ctx, align 8
+%h264_initialized = getelementptr inbounds %struct.VDADecoderContext, %struct.VDADecoderContext* %4, i32 0, i32 1
+store i32 0, i32* %h264_initialized, align 16
+%5 = load i32*, i32** getelementptr inbounds (%struct.AVCodec, %struct.AVCodec* @ff_h264_vda_decoder, i32 0, i32 6), align 8
+%tobool = icmp ne i32* %5, null
+br i1 %tobool, label %if.end3, label %if.then
+%6 = load double, double* @kCFCoreFoundationVersionNumber, align 8
+%cmp = fcmp olt double %6, 6.350000e+02
+br i1 %cmp, label %if.then2, label %if.else
+store i32* getelementptr inbounds ([3 x i32], [3 x i32]* @vda_pixfmts_prior_10_7, i64 0, i64 0), i32** getelementptr inbounds (%struct.AVCodec, %struct.AVCodec* @ff_h264_vda_decoder, i32 0, i32 6), align 8
+store i32* getelementptr inbounds ([5 x i32], [5 x i32]* @vda_pixfmts, i64 0, i64 0), i32** getelementptr inbounds (%struct.AVCodec, %struct.AVCodec* @ff_h264_vda_decoder, i32 0, i32 6), align 8
+%7 = load %struct.AVCodecContext*, %struct.AVCodecContext** %avctx.addr, align 8
+%width = getelementptr inbounds %struct.AVCodecContext, %struct.AVCodecContext* %7, i32 0, i32 22
+%8 = load i32, i32* %width, align 4
+%9 = load %struct.vda_context*, %struct.vda_context** %vda_ctx, align 8
+%width4 = getelementptr inbounds %struct.vda_context, %struct.vda_context* %9, i32 0, i32 3
+store i32 %8, i32* %width4, align 4
+%10 = load %struct.AVCodecContext*, %struct.AVCodecContext** %avctx.addr, align 8
+%height = getelementptr inbounds %struct.AVCodecContext, %struct.AVCodecContext* %10, i32 0, i32 23
+%11 = load i32, i32* %height, align 8
+%12 = load %struct.vda_context*, %struct.vda_context** %vda_ctx, align 8
+%height5 = getelementptr inbounds %struct.vda_context, %struct.vda_context* %12, i32 0, i32 4
+store i32 %11, i32* %height5, align 8
+%13 = load %struct.vda_context*, %struct.vda_context** %vda_ctx, align 8
+%format = getelementptr inbounds %struct.vda_context, %struct.vda_context* %13, i32 0, i32 5
+store i32 1635148593, i32* %format, align 4
+%14 = load %struct.vda_context*, %struct.vda_context** %vda_ctx, align 8
+%use_sync_decoding = getelementptr inbounds %struct.vda_context, %struct.vda_context* %14, i32 0, i32 2
+store i32 1, i32* %use_sync_decoding, align 8
+%15 = load %struct.vda_context*, %struct.vda_context** %vda_ctx, align 8
+%use_ref_buffer = getelementptr inbounds %struct.vda_context, %struct.vda_context* %15, i32 0, i32 10
+store i32 1, i32* %use_ref_buffer, align 8
+%16 = load %struct.AVCodecContext*, %struct.AVCodecContext** %avctx.addr, align 8
+%get_format = getelementptr inbounds %struct.AVCodecContext, %struct.AVCodecContext* %16, i32 0, i32 30
+%17 = load i32 (%struct.AVCodecContext*, i32*)*, i32 (%struct.AVCodecContext*, i32*)** %get_format, align 8
+%18 = load %struct.AVCodecContext*, %struct.AVCodecContext** %avctx.addr, align 8
+%19 = load %struct.AVCodecContext*, %struct.AVCodecContext** %avctx.addr, align 8
+%codec = getelementptr inbounds %struct.AVCodecContext, %struct.AVCodecContext* %19, i32 0, i32 3
+%20 = load %struct.AVCodec*, %struct.AVCodec** %codec, align 8
+%pix_fmts = getelementptr inbounds %struct.AVCodec, %struct.AVCodec* %20, i32 0, i32 6
+store i32 %call6, i32* %pix_fmt, align 8
+%23 = load %struct.VDADecoderContext*, %struct.VDADecoderContext** %ctx, align 8
+%pix_fmt7 = getelementptr inbounds %struct.VDADecoderContext, %struct.VDADecoderContext* %23, i32 0, i32 3
+%24 = load i32, i32* %pix_fmt7, align 8
+switch i32 %24, label %failed 
+%25 = load %struct.vda_context*, %struct.vda_context** %vda_ctx, align 8
+%cv_pix_fmt_type = getelementptr inbounds %struct.vda_context, %struct.vda_context* %25, i32 0, i32 6
+store i32 846624121, i32* %cv_pix_fmt_type, align 8
+%26 = load %struct.vda_context*, %struct.vda_context** %vda_ctx, align 8
+%cv_pix_fmt_type9 = getelementptr inbounds %struct.vda_context, %struct.vda_context* %26, i32 0, i32 6
+store i32 2037741171, i32* %cv_pix_fmt_type9, align 8
+%27 = load %struct.vda_context*, %struct.vda_context** %vda_ctx, align 8
+%cv_pix_fmt_type11 = getelementptr inbounds %struct.vda_context, %struct.vda_context* %27, i32 0, i32 6
+store i32 875704438, i32* %cv_pix_fmt_type11, align 8
+%28 = load %struct.vda_context*, %struct.vda_context** %vda_ctx, align 8
+%cv_pix_fmt_type13 = getelementptr inbounds %struct.vda_context, %struct.vda_context* %28, i32 0, i32 6
+store i32 2033463856, i32* %cv_pix_fmt_type13, align 8
+%29 = load %struct.vda_context*, %struct.vda_context** %vda_ctx, align 8
+%30 = load %struct.AVCodecContext*, %struct.AVCodecContext** %avctx.addr, align 8
+%extradata = getelementptr inbounds %struct.AVCodecContext, %struct.AVCodecContext* %30, i32 0, i32 17
+%31 = load i8*, i8** %extradata, align 8
+%32 = load %struct.AVCodecContext*, %struct.AVCodecContext** %avctx.addr, align 8
+%extradata_size = getelementptr inbounds %struct.AVCodecContext, %struct.AVCodecContext* %32, i32 0, i32 18
+%33 = load i32, i32* %extradata_size, align 8
+%call15 = call i32 @ff_vda_create_decoder(%struct.vda_context* %29, i8* %31, i32 %33)
+store i32 %call15, i32* %status, align 4
+%34 = load i32, i32* %status, align 4
+%cmp16 = icmp ne i32 %34, 0
+br i1 %cmp16, label %failed, label %if.end18
+%35 = load %struct.vda_context*, %struct.vda_context** %vda_ctx, align 8
+%36 = bitcast %struct.vda_context* %35 to i8*
+%37 = load %struct.AVCodecContext*, %struct.AVCodecContext** %avctx.addr, align 8
+%hwaccel_context = getelementptr inbounds %struct.AVCodecContext, %struct.AVCodecContext* %37, i32 0, i32 163
+store i8* %36, i8** %hwaccel_context, align 8
+%38 = load %struct.AVCodecContext*, %struct.AVCodecContext** %avctx.addr, align 8
+%get_format19 = getelementptr inbounds %struct.AVCodecContext, %struct.AVCodecContext* %38, i32 0, i32 30
+store i32 (%struct.AVCodecContext*, i32*)* @get_format, i32 (%struct.AVCodecContext*, i32*)** %get_format19, align 8
+%39 = load %struct.AVCodecContext*, %struct.AVCodecContext** %avctx.addr, align 8
+%get_buffer2 = getelementptr inbounds %struct.AVCodecContext, %struct.AVCodecContext* %39, i32 0, i32 109
+store i32 (%struct.AVCodecContext*, %struct.AVFrame*, i32)* @get_buffer2, i32 (%struct.AVCodecContext*, %struct.AVFrame*, i32)** %get_buffer2, align 8
+%40 = load %struct.AVCodecContext*, %struct.AVCodecContext** %avctx.addr, align 8
+%get_buffer = getelementptr inbounds %struct.AVCodecContext, %struct.AVCodecContext* %40, i32 0, i32 106
+store i32 (%struct.AVCodecContext*, %struct.AVFrame*)* null, i32 (%struct.AVCodecContext*, %struct.AVFrame*)** %get_buffer, align 8
+%41 = load i32 (%struct.AVCodecContext*)*, i32 (%struct.AVCodecContext*)** getelementptr inbounds (%struct.AVCodec, %struct.AVCodec* @ff_h264_decoder, i32 0, i32 19), align 8
+%42 = load %struct.AVCodecContext*, %struct.AVCodecContext** %avctx.addr, align 8
+%call20 = call i32 %41(%struct.AVCodecContext* %42)
+store i32 %call20, i32* %ret, align 4
+%43 = load i32, i32* %ret, align 4
+%cmp21 = icmp slt i32 %43, 0
+br i1 %cmp21, label %if.then22, label %if.end23
+%44 = load %struct.AVCodecContext*, %struct.AVCodecContext** %avctx.addr, align 8
+%45 = bitcast %struct.AVCodecContext* %44 to i8*
+call void (i8*, i32, i8*, ...) @av_log(i8* %45, i32 16, i8* getelementptr inbounds ([31 x i8], [31 x i8]* @.str.3, i64 0, i64 0))
+%46 = load %struct.VDADecoderContext*, %struct.VDADecoderContext** %ctx, align 8
+%h264_initialized24 = getelementptr inbounds %struct.VDADecoderContext, %struct.VDADecoderContext* %46, i32 0, i32 1
+store i32 1, i32* %h264_initialized24, align 16
+%47 = load %struct.AVCodecContext*, %struct.AVCodecContext** %avctx.addr, align 8
+%call25 = call i32 @vdadec_close(%struct.AVCodecContext* %47)
+[82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95]
+------------------------------
